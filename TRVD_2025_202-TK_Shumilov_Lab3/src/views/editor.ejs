@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+<div class="register-container">
+    <div class="registration-box">
+        <h2><%= isEdit ? 'Редагувати' : 'Додати' %> табулатуру</h2>
+        <form action="<%= isEdit ? '/update/' + tab.id : '/create' %>" method="POST">
+            <table class="reg-table">
+                <tr>
+                    <td>Назва пісні</td>
+                    <td><input type="text" name="title" value="<%= isEdit ? tab.title : '' %>" required></td>
+                </tr>
+                <tr>
+                    <td>Виконавець</td>
+                    <td>
+                        <select name="artistId">
+                            <% artists.forEach(artist => { %>
+                                <option value="<%= artist.id %>" <%= isEdit && tab.artistId == artist.id ? 'selected' : '' %>>
+                                    <%= artist.name %>
+                                </option>
+                            <% }) %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Жанр</td>
+                    <td><input type="text" name="genre" value="<%= isEdit ? tab.genre : '' %>"></td>
+                </tr>
+            </table>
+            <div class="form-buttons">
+                <button type="submit" class="btn-register-submit">Зберегти</button>
+                <a href="/" class="btn-home">Скасувати</a>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('partials/footer') %>

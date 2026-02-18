@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>GuitarTabs | Реєстрація</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <header class="header">
+        <span class="header-logo">GuitarTabs</span>
+    </header>
+
+    <div class="register-container">
+        <div class="registration-box">
+            <h2>Створити акаунт</h2>
+            <form action="login.html">
+                <table class="reg-table">
+                    <tr>
+                        <td>Логін</td>
+                        <td><input type="text" name="login" required></td>
+                    </tr>
+                    <tr>                   
+                        <td>E-mail</td>
+                        <td><input type="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Пароль</td>
+                        <td><input type="password" name="password" required></td>
+                    </tr>
+                    <tr>
+                        <td>Ваш вік</td>
+                        <td><input type="text" name="age" required></td>
+                    </tr>
+                    <tr>
+                        <td>Стать</td>
+                        <td>
+                            <input type="radio" id="male" name="gender" value="Чоловіча" checked style="width: auto;"> 
+                            <label for="male">Чоловіча</label>
+                            <input type="radio" id="female" name="gender" value="Жіноча" style="width: auto;"> 
+                            <label for="female">Жіноча</label>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-buttons">
+                    <input type="submit" value="Зареєструватися" class="btn-submit">
+                    <a href="index.html" class="btn-home">Скасувати</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<main class="container">
+    <h2>Актуальні табулатури</h2>
+    <div class="section-grid">
+        <% tabs.forEach(tab => { %>
+            <div class="card">
+                <h4><%= tab.title %></h4>
+            
+                <% if (user) { %>
+                    <a href="/edit/<%= tab._id %>">✍️ Редагувати</a>
+                
+                    <% if (user.role === 'admin') { %>
+                        <form action="/delete/<%= tab._id %>" method="POST">
+                            <button type="submit" class="btn-delete">🗑 Видалити</button>
+                        </form>
+                    <% } %>
+                <% } %>
+            </div>
+        <% }) %>
+    </div>
+    <a href="/create" class="btn-register">Додати нову сутність</a>
+</main>
