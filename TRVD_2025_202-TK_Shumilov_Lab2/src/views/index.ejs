@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<main class="container">
+    <h2>Актуальні табулатури</h2>
+    <div class="section-grid">
+        <% tabs.forEach(tab => { %>
+            <div class="manga-card">
+                <img src="/img/cover.jpg" alt="Tab">
+                <div class="manga-card-info">
+                    <h4><%= tab.title %></h4>
+                    <p><%= tab.artist %></p>
+                    <a href="/edit/<%= tab.id %>">Редагувати</a>
+                    <form action="/delete/<%= tab.id %>" method="POST" style="display:inline;">
+                        <button type="submit">Видалити</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <a href="/create" class="btn-register">Додати нову сутність</a>
+</main>
+<%- include('partials/footer') %>

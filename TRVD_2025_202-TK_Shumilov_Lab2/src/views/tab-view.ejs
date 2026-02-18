@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+<div class="container preview-content">
+    <div class="cover-section">
+        <div class="preview-image">
+            <img src="https://via.placeholder.com/200x280" alt="Cover">
+        </div>
+        <div class="preview-info">
+            <div class="title-header">
+                <h1><%= tab.title %></h1>
+                <div class="rating-box"><span class="score"><%= tab.rating %></span></div>
+            </div>
+            <p><strong>Виконавець:</strong> <%= tab.artist %></p>
+            <div class="tags">
+                <a href="#" class="tag-item"><%= tab.genre %></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-layout">
+        <aside class="sidebar-col">
+            <div class="sidebar-block">
+                <a href="/edit/<%= tab.id %>" class="action-button btn-add" style="text-align:center; display:block; text-decoration:none;">Редагувати</a>
+                
+                <form action="/delete/<%= tab.id %>" method="POST" onsubmit="return confirm('Ви впевнені?')">
+                    <button type="submit" class="action-button" style="background-color: #e74c3c; color: white;">Видалити</button>
+                </form>
+            </div>
+        </aside>
+        
+        <main class="main-col">
+            <h3>Схеми акордів</h3>
+            <div class="chord-grid" style="display:flex; gap:15px;">
+                <% tab.chords.forEach(chord => { %>
+                    <div class="chord-card" style="border:1px solid #ddd; padding:10px; border-radius:5px;">
+                        <strong><%= chord.name %></strong>
+                        <pre><%= chord.diagram %></pre> </div>
+                <% }) %>
+            </div>
+        </main>
+    </div>
+</div>
+<%- include('partials/footer') %>

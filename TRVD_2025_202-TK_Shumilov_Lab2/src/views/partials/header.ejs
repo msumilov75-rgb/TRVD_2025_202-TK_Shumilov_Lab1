@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="header-left">
+        <span class="header-logo">GuitarTabs</span>
+        <nav class="main-nav">
+            <a href="/">Головна</a>
+            <a href="/catalog">Каталог</a>
+            <a href="/about">Про нас</a>
+        </nav>
+    </div>
+    <div class="header-right">
+        <% if (user) { %>
+            <a href="/profile" class="btn-login">👤 <%= user.login %></a>
+        <% } else { %>
+            <a href="/login" class="btn-login">Вхід</a>
+            <a href="/register" class="btn-register">Реєстрація</a>
+        <% } %>
+    </div>
+</header>
